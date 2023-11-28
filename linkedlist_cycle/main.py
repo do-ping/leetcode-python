@@ -1,11 +1,11 @@
 # Definition for singly-linked list.
 from typing import Optional, List
 
-
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+from helper_functions.linked_list import (
+    ListNode,
+    make_linked_list,
+    linkedlist_to_string,
+)
 
 
 class Solution:
@@ -26,46 +26,9 @@ class Solution:
         return False
 
 
-def _make_linked_list(arr: List[int], last_points_to: int) -> Optional[ListNode]:
-    if not arr:
-        return None
-
-    head: ListNode = None
-    current: ListNode = None
-    cycle_item: ListNode = None
-
-    for n, item in enumerate(arr):
-        if n == 0:
-            head = ListNode(item)
-            current = head
-        else:
-            current.next = ListNode(item)
-            current = current.next
-
-        if 0 <= last_points_to == n:
-            cycle_item = current
-
-    if cycle_item:
-        current.next = cycle_item
-
-    return head
-
-
-def _print_linkedlist(head: ListNode):
-    s = ""
-    current = head
-    while current:
-        s += str(current.val)
-        current = current.next
-        if current:
-            s += " -> "
-        else:
-            break
-    print(s)
-
-
 if __name__ == "__main__":
     s = Solution()
+    intput_: tuple[list[int], int, bool]
     for input_ in [
         ([3, 2, 0, -4], 1, True),
         ([1, 2], 0, True),
@@ -114,9 +77,16 @@ if __name__ == "__main__":
             False,
         ),
     ]:
-        ll = _make_linked_list(input_[0], input_[1])
+        l_ = input_[0]
+        cycle: int = input_[1]
         expected = input_[2]
+
+        ll = make_linked_list(l_, cycle)
+
+        ll_str = linkedlist_to_string(ll, True if cycle >= 0 else False)
         result = s.hasCycle(ll)
+
+        print(f"tail_to={cycle} input={ll_str}\nexpected={expected}, actual={result}")
         assert (
             expected == result
         ), f"ll={input_[0]}, cycle_n={input_[1]}, expected={expected}, got={result}"

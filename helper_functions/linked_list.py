@@ -70,3 +70,21 @@ def linkedlist_to_string(head: ListNode, cyclic: bool = False, separator="->") -
             current = current.next
 
     return separator.join((str(e) for e in s))
+
+
+def linked_lists_equal(l1: Optional[ListNode], l2: Optional[ListNode]) -> bool:
+    if not l1 and not l2:
+        return True
+    if not l1 or not l2:
+        return False
+
+    current1 = l1
+    current2 = l2
+
+    while current1 and current2:
+        if current1.val != current2.val:
+            return False
+        current1 = current1.next
+        current2 = current2.next
+
+    return (not current1) and (not current2)

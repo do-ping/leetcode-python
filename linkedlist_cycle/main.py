@@ -3,8 +3,8 @@ from typing import Optional, List
 
 from helper_functions.linked_list import (
     ListNode,
-    make_linked_list,
-    linkedlist_to_string,
+    create_linkedlist,
+    stringify_linkedlist,
 )
 
 
@@ -81,9 +81,9 @@ if __name__ == "__main__":
         cycle: int = input_[1]
         expected = input_[2]
 
-        ll = make_linked_list(l_, cycle)
+        ll = create_linkedlist(l_, cycle)
 
-        ll_str = linkedlist_to_string(ll, True if cycle >= 0 else False)
+        ll_str = stringify_linkedlist(ll, True if cycle >= 0 else False)
         result = s.hasCycle(ll)
 
         print(f"tail_to={cycle} input={ll_str}\nexpected={expected}, actual={result}")

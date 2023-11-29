@@ -3,9 +3,9 @@ from typing import Optional
 
 from helper_functions.linked_list import (
     ListNode,
-    make_linked_list,
-    linkedlist_to_string,
-    linked_lists_equal,
+    create_linkedlist,
+    stringify_linkedlist,
+    compare_linkedlist,
 )
 
 
@@ -45,14 +45,14 @@ if __name__ == "__main__":
         ([0], [0], [0]),
         ([9, 9, 9, 9, 9, 9, 9], [9, 9, 9, 9], [8, 9, 9, 9, 0, 0, 0, 1]),
     ]:
-        arr1 = make_linked_list(data[0])
-        arr2 = make_linked_list(data[1])
-        expected = make_linked_list(data[2])
+        arr1 = create_linkedlist(data[0])
+        arr2 = create_linkedlist(data[1])
+        expected = create_linkedlist(data[2])
 
         actual = s.addTwoNumbers(arr1, arr2)
 
         print(
-            f"l1={linkedlist_to_string(arr1)}\nl2={linkedlist_to_string(arr2)}\nwanted="
-            f"{linkedlist_to_string(expected)}\nresult={linkedlist_to_string(actual)}"
+            f"l1={stringify_linkedlist(arr1)}\nl2={stringify_linkedlist(arr2)}\nwanted="
+            f"{stringify_linkedlist(expected)}\nresult={stringify_linkedlist(actual)}"
         )
-        assert linked_lists_equal(expected, actual)
+        assert compare_linkedlist(expected, actual)

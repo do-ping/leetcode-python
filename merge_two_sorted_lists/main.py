@@ -2,9 +2,9 @@ from typing import Optional
 
 from helper_functions.linked_list import (
     ListNode,
-    make_linked_list,
-    linkedlist_to_string,
-    linked_lists_equal,
+    create_linkedlist,
+    stringify_linkedlist,
+    compare_linkedlist,
 )
 
 
@@ -60,16 +60,16 @@ if __name__ == "__main__":
         ([-22, 45, 67, 100], [-100, 44], [-100, -22, 44, 45, 67, 100]),
         ([-1, 1, 1, 1, 1], [0], [-1, 0, 1, 1, 1, 1]),
     ]:
-        l1 = make_linked_list(data[0])
-        l2 = make_linked_list(data[1])
-        want = make_linked_list(data[2])
+        l1 = create_linkedlist(data[0])
+        l2 = create_linkedlist(data[1])
+        want = create_linkedlist(data[2])
         got = s.mergeTwoLists(l1, l2)
 
         print(
-            f"l1  ={linkedlist_to_string(l1)}\n"
-            f"l2  ={linkedlist_to_string(l2)}\n"
-            f"want={linkedlist_to_string(want)}\n"
-            f"got ={linkedlist_to_string(got)}\n"
+            f"l1  ={stringify_linkedlist(l1)}\n"
+            f"l2  ={stringify_linkedlist(l2)}\n"
+            f"want={stringify_linkedlist(want)}\n"
+            f"got ={stringify_linkedlist(got)}\n"
         )
 
-        assert linked_lists_equal(want, got)
+        assert compare_linkedlist(want, got)

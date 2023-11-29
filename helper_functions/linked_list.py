@@ -7,7 +7,7 @@ class ListNode:
         self.next = None
 
 
-def make_linked_list(arr: List[int], last_points_to: int = -1) -> Optional[ListNode]:
+def create_linkedlist(arr: List[int], last_points_to: int = -1) -> Optional[ListNode]:
     """
     Make a linked list from a given list.
     Optionally, if the linked list is cyclic, specify the index of a list element to which the tail is pointing to.
@@ -39,7 +39,7 @@ def make_linked_list(arr: List[int], last_points_to: int = -1) -> Optional[ListN
     return head
 
 
-def linkedlist_to_string(head: ListNode, cyclic: bool = False, separator="->") -> str:
+def stringify_linkedlist(head: ListNode, cyclic: bool = False, separator="->") -> str:
     """
     Print given linked list elements, separated by (optionally) given separator.
     If the linked list is cyclic, set cyclic to True.
@@ -72,7 +72,7 @@ def linkedlist_to_string(head: ListNode, cyclic: bool = False, separator="->") -
     return separator.join((str(e) for e in s))
 
 
-def linked_lists_equal(l1: Optional[ListNode], l2: Optional[ListNode]) -> bool:
+def compare_linkedlist(l1: Optional[ListNode], l2: Optional[ListNode]) -> bool:
     if not l1 and not l2:
         return True
     if not l1 or not l2:

@@ -2,9 +2,9 @@ from typing import Optional
 
 from helper_functions.linked_list import (
     ListNode,
-    make_linked_list,
-    linkedlist_to_string,
-    linked_lists_equal,
+    create_linkedlist,
+    stringify_linkedlist,
+    compare_linkedlist,
 )
 
 
@@ -47,15 +47,15 @@ if __name__ == "__main__":
         l = data[0]
         left = data[1]
         right = data[2]
-        want = make_linked_list(data[3])
-        ll = make_linked_list(l)
+        want = create_linkedlist(data[3])
+        ll = create_linkedlist(l)
         got = s.reverseBetween(ll, left, right)
 
         print(
-            f"input={linkedlist_to_string(ll)}\n"
+            f"input={stringify_linkedlist(ll)}\n"
             f"left={left} right={right}\n"
-            f"want={linkedlist_to_string(want)}\n"
-            f"got={linkedlist_to_string(got)}"
+            f"want={stringify_linkedlist(want)}\n"
+            f"got={stringify_linkedlist(got)}"
         )
 
-        assert linked_lists_equal(want, got)
+        assert compare_linkedlist(want, got)

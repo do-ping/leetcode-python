@@ -2,9 +2,9 @@ from typing import List, Optional
 
 
 class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
 
 def create_linkedlist(arr: List[int], last_points_to: int = -1) -> Optional[ListNode]:
